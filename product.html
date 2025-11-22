@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book meetings that work</title>
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html,body { height: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f6f9fb; /* pale grey from screenshot */
+      color: #0f3f5a; /* deep navy for heading */
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    /* Hero wrapper centers content and applies decorative image on the right */
+    .hero {
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Decorative image placed on right (similar to screenshot subtle diagonal) */
+    .hero::after{
+      content: "";
+      position: absolute;
+      right: -4%;
+      top: 0;
+      bottom: 0;
+      width: 42%;
+      background-image: url("/mnt/data/Screenshot 2025-11-21 at 11.50.20 PM.png");
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: cover;
+      opacity: 0.12; /* subtle decorative effect */
+      pointer-events: none;
+    }
+
+    /* Headline: big, bold, split into two lines visually */
+    h1 {
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      line-height: 0.95;
+      color: #083b57;
+      /* responsive sizing: clamp(min, preferred, max) */
+      font-size: clamp(40px, 8vw, 120px);
+    }
+
+    /* Force a line break at a specific place using <br> in markup (we'll put "for you" on its own line) */
+    .subhead {
+      max-width: 860px;
+      margin: 0 auto 30px auto;
+      font-weight: 400;
+      font-size: clamp(15px, 1.6vw, 20px);
+      color: #6f8aa2;
+      line-height: 1.6;
+      padding: 0 8px;
+    }
+
+    .cta {
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      min-width: 160px;
+      text-align: center;
+      transition: transform .12s ease, box-shadow .12s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg,#0e6fff 0%, #0066ff 100%);
+      color: #fff;
+      border: 0;
+      box-shadow: 0 6px 18px rgba(3,102,255,0.18);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(3,102,255,0.20); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #274a66;
+      border: 2px solid rgba(39,74,102,0.18);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(39,74,102,0.06); }
+
+    /* Make sure hero remains readable on small screens (reduce decorative image) */
+    @media (max-width: 900px) {
+      .hero::after { width: 60%; right: -12%; opacity: 0.10; }
+      h1 { letter-spacing: -0.5px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 36px 12px; }
+      .hero::after { display: none; } /* hide the decorative image on very small screens */
+      .btn { min-width: 140px; padding: 12px 18px; font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero" role="main" aria-labelledby="hero-heading">
+    <h1 id="hero-heading">
+      Book meetings that work<br /><span style="display:inline-block">for you</span>
+    </h1>
+
+    <p class="subhead">
+      Automate scheduling to solve any meeting scenario, improve meeting prep and follow-up, route calls to experts,
+      connect all the tools you need, and stay secure.
+    </p>
+
+    <div class="cta">
+      <a href="#" class="btn btn-primary" style="box-shadow: 0 6px 18px rgba(3,102,255,0.18);">Sign up for free</a>
+      <a href="#" class="btn btn-secondary">Get a demo</a>
+    </div>
+  </main>
+</body>
+</html>

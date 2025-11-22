@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Easy scheduling ahead — Demo</title>
+    <style>
+        root{
+  --blue:#0066ff;
+  --dark:#0b2540;
+  --muted:#6b7a8a;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:var(--dark); background:rgb(255, 255, 255)}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;text-decoration: none;border-bottom:1px solid rgba(11,37,64,0.04)}
+.logo{font-weight:800;color:#0066ff;font-size: 40px; text-decoration: none;}
+.nav{display:flex;gap: 50px;color:black;font-size: 300px;}
+.nav1{transition: 0.4s;background-color: #fff;border: none;outline: none;gap: 60px; color: black;font-size: 22px;border-radius: 8px;}
+.nav2{transition: 0.4s;background-color: #fff;border: none;outline: none;gap: 60px; color: black;font-size: 22px;border-radius: 8px;}
+.nav3{transition: 0.4s;background-color: #fff;border: none;outline: none;gap: 60px; color: black;font-size: 22px;border-radius: 8px;}
+.nav4{transition: 0.4s;background-color: #fff;border: none;outline: none;gap: 60px; color: black;font-size: 22px;border-radius: 8px;}
+.nav1:hover {
+  background: rgb(91, 151, 240);
+  transform: scale(2,2);}
+.nav2:hover {
+  background: rgb(91, 151, 240);
+  transform: scale(2,2);}
+.nav3:hover {
+  background: rgb(91, 151, 240);
+  transform: scale(2,2);}
+.nav4:hover {
+  background: rgb(91, 151, 240);
+  transform: scale(2,2);}
+.actions{display:flex;gap:20px;align-items:center}
+.btn-primary{background-color: #0066ff;color:#ffffff;padding:10px 18px;border-radius:8;border: none;outline: none;transition: 0.4s;border-radius: 8px;}
+.btn-primary:hover{
+  background: #0066ff;
+  transform: scale(1.1,1.1);}
+.login{color:black;;transition: 0.4s;background-color: #fff;border: none;outline: none; color: black;font-size: 22px;border-radius: 8px;}
+.login:hover {
+  background: rgb(91, 151, 240);
+  transform: scale(1,1);}
+
+.hero{display:flex;align-items:center;gap:40px;padding:80px 100px;max-width:1600px;margin:0 auto}
+.hero-left{flex:0 0 46%;}
+.headline{font-size:72px;line-height:0.98;margin:0 0 20px;font-weight:800;color:#0f3556}
+.lede{color:var(--muted);margin-bottom:28px}
+.auth{display:flex;flex-direction:column;gap:12px}
+.op:hover{background: #0066ff;
+  transform: scale(1.1,1.1);}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn img{width:22px;height:22px;object-fit:cover;border-radius:4px}
+.btn.google{background:#0a66ff;color:#fff}
+.btn.microsoft{background:#072233;color:#fff}
+.or-row{display:flex;flex-direction:column;gap:6px;margin-top:6px;color:var(--muted)}
+.or{font-weight:700}
+.email-sign{text-decoration:underline;cursor:pointer;}
+.note{font-size:13px}
+.trusted{margin-top:32px;color:black}
+.logos{display:flex;gap:28px;margin-top:18px;align-items:center}
+.logos img{height:28px;opacity:0.85}
+
+.hero-right{flex:1;position:relative;display:flex;justify-content:center}
+.illustration{width:200%;position:relative}
+img{top: 20px; left: 20px;}
+.illustration video{width:100%;border:280px;border-radius: 8px;filter:drop-shadow(0 20px 40px rgba(2,24,55,0.08))}
+.card{position:absolute;left:28px;top:36px;background:#fff;padding:130px;border-radius:16px;box-shadow:0 10px 30px rgba(2,24,55,0.06);width:85%}
+.card h3{margin:0 0 12px;font-size:20px}
+.workflows{display:flex;gap:12px}
+.wf{flex:1;background:#f6f9fe;padding:12px;border-radius:10px}
+.wf-title{font-weight:700;margin-bottom:6px}
+.wf-sub{background:#fff;padding:8px;border-radius:8px;border:1px solid rgba(11,37,64,0.06);text-align:center}
+
+
+
+
+.bottom-logos{display:flex;justify-content:center;gap: 150px;}
+.bottom-logos img{height:400px;opacity:100}
+
+@media (max-width:900px){
+  .hero{flex-direction:column;padding:32px}
+  .headline{font-size:44px}
+  .hero-right{order:-1}
+  .illustration img{max-width:420px}
+  .tttmo{
+  margin: 0 auto;  
+  border-collapse: collapse;
+}
+  .tttmo{
+  border: 1px solid black;
+  padding: 10px;
+}
+}
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a style="text-decoration: none;" href="index.html"><div class="logo">Calendly</div>
+      <nav class="nav"></a>
+        <a class="nav1" href="product.html"><button >Product</button></a>
+        <a class="nav2" href="solution.html"><button >Solutions</button></a>
+        <a class="nav3" href="re.html"><button >Resources</button></a>
+        <a class="nav4" href="pr.html"><button >Pricing</button></a>
+      </nav>
+      <div class="actions">
+        <a class="login" href="https://www.google.com"><button >Log In</button></a>
+        <button class="btn-primary" style="font-weight: bold;">Get started</button>
+      </div>
+    </header>
+
+    <main class="hero">
+      <section class="hero-left">
+        <h1 class="headline">Easy<br/>scheduling<br/>ahead</h1>
+        <p class="lede" style="font-size: large;color: rgb(299, 92, 255);
+        font-weight: 600;">Join 20 million professionals who easily book meetings with the #1 scheduling tool.</p>
+
+        <div class="auth">
+          <a class="btn google" href="https://www.google.com">
+            <img src="google_logo.png" alt="Google" />
+            Sign up with Google
+          </a>
+
+          <a class="btn microsoft" href="https://www.microsoft.com/en-in">
+            <img src="window_image.png" alt="Microsoft" />
+            Sign up with Microsoft
+          </a>
+
+          <div class="or-row">
+            <span class="or">OR</span>
+            <a class="email-sign" href="https://mail.google.com/">Sign up free with email </a>
+            <span class="note">No credit card required</span>
+          </div>
+        </div>
+
+        <div class="trusted" style="font-weight: bold;">Trusted by more than <strong>100,000</strong> of the worlds leading organizations</div>
+
+        <!-- <div class="logos">
+          <img alt="logo" src="/mnt/data/Screenshot 2025-11-21 at 5.20.52 PM.png" />
+          <img alt="logo" src="/mnt/data/Screenshot 2025-11-21 at 5.20.52 PM.png" />
+          <img alt="logo" src="/mnt/data/Screenshot 2025-11-21 at 5.20.52 PM.png" />
+          <img alt="logo" src="/mnt/data/Screenshot 2025-11-21 at 5.20.52 PM.png" />
+          <img alt="logo" src="/mnt/data/Screenshot 2025-11-21 at 5.20.52 PM.png" />
+        </div> -->
+      </section>
+
+      <aside class="hero-right">
+        <div class="illustration">
+          <video src="bpvideo.mp4" autoplay muted></video>
+          <!-- <div class="card">
+            <h3 style="font-size: 37px;">Reduce no-shows and stay on track</h3>
+            <div class="workflows">
+              <div class="wf">
+                <div class="wf-title">Send text reminder</div>
+                <div class="wf-sub">24 hours before event starts</div>
+              </div>
+              <div class="wf">
+                <div class="wf-title">Send follow-up email</div>
+                <div class="wf-sub">2 hours after event ends</div>
+              </div>
+            </div>
+        </div> -->
+
+      </aside>
+    </main>
+
+    <!-- <footer class="site-footer">
+      <div class="bottom-logos">
+        <img alt="brand" src="dropboxtranspa.png" height="1000" />
+        <img alt="brand" src="spscextran.png" height="100" />
+        <img alt="brand" src="580b57fcd9996e24bc43c51f.png" height="100" />
+        <img alt="brand" src="images.png" height="100" />
+        <img alt="brand" src="images-1.png" height="1000" />
+      </div>
+    </footer> --><br><br>
+    <h1 class="headline" style="text-align: center;">Calendly makes<br> scheduling simple<br></h1>
+    <p class="lede" style="font-size: 30px;color:rgb(19, 25, 28);text-align: center;font-weight: 600;">Calendly’s easy enough for individual users, and powerful enough to meet the needs of<br> enterprise organizations — including 86% of the Fortune 500 companies.<br></p><br>
+    <a class="gfgfgfgf" style="display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2vh;" href="https://calendly.com/signup"><button class="op" style="font-weight: bold;background-color: #0066ff;border-radius:8;border: none;outline: none;padding: 11px 15px;color: #ffffff;transition: 0.4s;" >click me</button></a><br><br><br><br>
+    <h1 class="headline" style="text-align: center;">Connect Calendly to the<br> tools you already use</h1>
+    <!-- <table border="0" class="ttttmo">
+           <tr>
+            <td>
+                <a href="https://www.google.com"><img src="youtube-logo-png-transparent-image-5.png" alt=""></a>
+            </td>
+           <td><a href="https://www.google.com"><img src="youtube-logo-png-transparent-image-5.png" alt=""></a></td></tr>
+           <tr>
+            <td><a href="https://www.google.com"><img src="youtube-logo-png-transparent-image-5.png" alt=""></a></td>
+           <td><a href="https://www.google.com"><img src="youtube-logo-png-transparent-image-5.png" alt=""></a></td>
+           </tr> --><br><br>
+           
+           
+
+<br><br><a href="https://calendly.com/signup"><img src="payment'.png" alt="" height="500"></a><br><br><br><br><br>
+<footer style="background:#232F3E;color:white;font-family:Arial,sans-serif">
+
+  <div style="background:#37475A;text-align:center;padding:14px;font-size:14px;cursor:pointer">
+    © 1996-2025, All rights reserved
+  </div>
+
+  <div style="display:flex;justify-content:center;gap:70px;padding:50px 20px">
+    
+    <div style="display:flex;flex-direction:column">
+      <h4 style="margin:0 0 12px;font-size:18px">Get to Know Us</h4>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">About Calendly</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">History</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Press Releases</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px"><code><>code</code></a>
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+      <h4 style="margin:0 0 12px;font-size:18px">Connect with Us</h4>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Facebook</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Twitter</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Instagram</a>
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+      <h4 style="margin:0 0 12px;font-size:18px">Make Money with Us</h4>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Create on Calendly</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Protect and Build Your MNC</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Payments</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Analytics</a>
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+      <h4 style="margin:0 0 12px;font-size:18px">Let Us Help You</h4>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Your Account</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Help center</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">Developer Tool;</a>
+      <a href="#" style="color:#ddd;text-decoration:none;margin:5px 0;font-size:15px">About us</a>
+    </div>
+
+  </div>
+
+  <div style="border-top:1px solid #3a4553;padding:25px 20px;display:flex;justify-content:center;align-items:center;gap:30px">
+    <div style="font-size:24px;font-weight:bold;letter-spacing:1px">Made in india with ❤️</div>
+
+    <div style="display:flex;gap:12px">
+      <div style="padding:8px 16px;border:1px solid #848688;border-radius:4px;font-size:14px;cursor:pointer">🌐 English</div>
+      <div style="padding:8px 16px;border:1px solid #848688;border-radius:4px;font-size:14px;cursor:pointer">🇮🇳 India</div>
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+
+  </body>
+</html>

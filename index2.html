@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Booking Page Mock</title>
+<style>
+:root{
+  --bg:#f7f9fb;
+  --card:#ffffff;
+  --muted:#a3b0bf;
+  --navy:#0b3650;
+  --blue:#0b74ff;
+  --soft-blue:#e9f2ff;
+  --pill:#eaf3ff;
+  --selected:#005ef6;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background:linear-gradient(180deg,var(--bg),#ffffff 20%);
+  color:var(--navy);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:32px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+.wrapper{
+  width:1100px;
+  background:transparent;
+}
+.header{
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:22px;
+  color:var(--navy);
+}
+.main{
+  display:grid;
+  grid-template-columns:320px 1fr 320px;
+  gap:28px;
+  background:transparent;
+}
+.panel{
+  background:var(--card);
+  border-radius:12px;
+  padding:28px;
+  box-shadow:0 6px 24px rgba(9,30,50,0.06);
+  min-height:560px;
+}
+.left{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:flex-start;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo{
+  width:48px;
+  height:36px;
+  display:inline-grid;
+  place-items:center;
+  border-radius:8px;
+  background:linear-gradient(135deg,#0b74ff,#00a0ff);
+  color:#fff;
+  font-weight:700;
+  font-size:18px;
+  transform:skewX(-8deg);
+}
+.company{font-weight:600;color:var(--navy);opacity:0.95}
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:linear-gradient(180deg,#2db7ff,#0072ff);
+  display:block;
+  box-shadow:0 4px 12px rgba(11,55,80,0.12);
+  margin-top:8px;
+  border:4px solid #fff;
+}
+.name{font-size:15px;color:#304559;margin-top:8px}
+.title{font-size:28px;font-weight:800;margin-top:6px;color:var(--navy)}
+.info-row{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:600;margin-top:6px}
+.icon{
+  width:36px;height:36px;border-radius:10px;background:var(--pill);display:inline-grid;place-items:center;color:var(--blue);
+  font-size:16px;
+}
+.left .filler{
+  margin-top:18px;
+  width:100%;
+  height:12px;
+  background:linear-gradient(90deg,#eef5fb,#f7fbff);
+  border-radius:8px;
+}
+.left .filler.small{width:85%;height:10px;margin-top:10px}
+.left .filler.xsmall{width:60%;height:10px;margin-top:8px}
+
+.center{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  padding:20px 28px;
+  justify-content:flex-start;
+}
+.center .select{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:6px 2px;
+}
+.month{
+  font-weight:700;
+  font-size:18px;
+  color:var(--navy);
+}
+.chev{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.chev button{
+  width:36px;height:36px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;color:var(--navy);cursor:pointer;
+}
+.calendar{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  margin-top:6px;
+  align-items:center;
+}
+.weekday{
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+}
+.date{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto;
+  color:var(--navy);
+  font-weight:700;
+}
+.date.dim{background:transparent;color:var(--muted);font-weight:600}
+.date.pulse{background:var(--soft-blue);color:var(--selected)}
+.date.active{background:var(--selected);color:white;box-shadow:0 6px 18px rgba(11,92,255,0.18)}
+.calendar .row{
+  display:contents;
+}
+.footer{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--muted);
+  font-weight:600;
+}
+.globe{width:18px;height:18px;border-radius:50%;background:linear-gradient(180deg,#dfeefb,#eaf5ff);display:inline-grid;place-items:center;font-size:12px;color:var(--blue)}
+
+.right{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  padding:22px;
+  justify-content:flex-start;
+  align-items:stretch;
+}
+.selected-day{font-weight:700;color:var(--navy);font-size:16px;margin-bottom:6px}
+.slot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 14px;
+  border-radius:8px;
+  border:2px solid rgba(11,116,255,0.18);
+  background:transparent;
+  color:var(--blue);
+  font-weight:700;
+  cursor:pointer;
+  transition:all .15s ease;
+}
+.slot:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(11,116,255,0.06)}
+.slot.selected{
+  background:transparent;
+  border-color:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.time-left{display:flex;align-items:center;gap:12px}
+.time-pill{
+  padding:10px 24px;border-radius:8px;border:2px solid rgba(11,116,255,0.18);font-weight:800;font-size:16px;background:#fff
+}
+.time-pill.dark{background:#3e5566;color:#fff;border-color:transparent;box-shadow:none}
+.confirm{
+  padding:10px 18px;border-radius:8px;background:linear-gradient(180deg,var(--blue),#0066e6);color:#fff;border:0;font-weight:700;cursor:pointer;min-width:110px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+}
+.confirm:active{transform:translateY(1px)}
+.small-btn{padding:8px 12px;border-radius:8px;border:2px solid rgba(11,116,255,0.12);background:#fff;font-weight:700;cursor:pointer}
+.note{margin-top:8px;color:var(--muted);font-size:13px;font-weight:600}
+@media (max-width:1100px){
+  .wrapper{width:95%}
+  .main{grid-template-columns:1fr;gap:16px}
+  .panel{padding:18px}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">Share your booking page</div>
+  <div class="main">
+    <div class="panel left">
+      <div class="brand">
+        <div class="logo">A</div>
+        <div class="company">ACME Inc.</div>
+      </div>
+      <img class="avatar" alt="avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72'><rect rx='36' width='72' height='72' fill='%23007bff'/></svg>">
+      <div class="name">Fatima Sy</div>
+      <div class="title">Client Check-in</div>
+      <div class="info-row"><div class="icon">⏱</div><div>30 min</div></div>
+      <div class="info-row"><div class="icon">📹</div><div>Zoom</div></div>
+      <div class="filler"></div>
+      <div class="filler small"></div>
+      <div class="filler xsmall"></div>
+    </div>
+    <div class="panel center">
+      <div class="select">
+        <div class="month">Select a Date &amp; Time</div>
+        <div class="chev">
+          <button aria-label="previous">‹</button>
+          <div style="width:8px"></div>
+          <button aria-label="next">›</button>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;margin-top:4px">
+        <div style="font-weight:700;color:var(--muted);opacity:0.9">July 2024</div>
+      </div>
+      <div class="calendar">
+        <div class="weekday">Sun</div><div class="weekday">Mon</div><div class="weekday">Tue</div><div class="weekday">Wed</div><div class="weekday">Thu</div><div class="weekday">Fri</div><div class="weekday">Sat</div>
+        <div class="date dim">30</div><div class="date dim">1</div><div class="date dim">2</div><div class="date dim">3</div><div class="date dim">4</div><div class="date dim">5</div><div class="date dim">6</div>
+        <div class="date dim">7</div><div class="date dim">8</div><div class="date dim">9</div><div class="date dim">10</div><div class="date dim">11</div><div class="date dim">12</div><div class="date dim">13</div>
+        <div class="date dim">14</div><div class="date dim">15</div><div class="date pulse">16</div><div class="date pulse">17</div><div class="date pulse">18</div><div class="date pulse">19</div><div class="date dim">20</div>
+        <div class="date dim">21</div><div class="date active">22</div><div class="date pulse">23</div><div class="date pulse">24</div><div class="date pulse">25</div><div class="date dim">26</div><div class="date dim">27</div>
+        <div class="date dim">28</div><div class="date dim">29</div><div class="date pulse">30</div><div class="date pulse">31</div><div class="date dim">1</div><div class="date dim">2</div><div class="date dim">3</div>
+      </div>
+      <div class="footer">
+        <div class="globe">🌐</div>
+        <div style="font-weight:700">Eastern time - US &amp; Canada</div>
+      </div>
+    </div>
+    <div class="panel right">
+      <div class="selected-day">Monday, July 22</div>
+      <div class="slot" style="padding:0;background:transparent;border:0">
+        <div class="time-pill" style="width:100%;text-align:center;">10:00am</div>
+      </div>
+      <div class="slot selected">
+        <div class="time-left">
+          <div class="time-pill dark">11:00am</div>
+        </div>
+        <button class="confirm">Confirm ▶</button>
+      </div>
+      <div class="slot" style="padding:0;background:transparent;border:0">
+        <div class="time-pill" style="width:100%;text-align:center;">1:00pm</div>
+      </div>
+      <div class="slot" style="padding:0;background:transparent;border:0">
+        <div class="time-pill" style="width:100%;text-align:center;">2:30pm</div>
+      </div>
+      <div class="slot" style="padding:0;background:transparent;border:0">
+        <div class="time-pill" style="width:100%;text-align:center;">4:00pm</div>
+      </div>
+      <div class="note">Times shown in Eastern time</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
